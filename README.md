@@ -19,12 +19,12 @@ The final implementation will include additional tools for the customization of 
 responses in terms of Direct-to-Reverberation energy ratio, length of the impulse response and
 orientation of the sound source.
 ## Getting started
-The music player is implemented as a Pure Data patch (path : `pure data/final design/music_player.pd`). In order to run it correcly, Pure Data and the following externals have to be installed:
+The music player is implemented as a Pure Data patch (path : `pure-data/final-design/music_player.pd`). In order to run it correcly, Pure Data and the following externals have to be installed:
 - `iemlib` - splitfilename 
 - `convolve~`
 - `earplug~`  
 
-From `./final design/pure data` it is not recomanded to remove any of the files in order for Pure Data to recognize both the data and `earplug~` external.  
+From `./pure-data/final-design/` it is not recomanded to remove any of the files in order for Pure Data to recognize both the data and `earplug~` external.  
 
 For the detailed descritption of the user interface, refer to chapter 4 "**User Interface and Functionalities**" of the project report. 
 
