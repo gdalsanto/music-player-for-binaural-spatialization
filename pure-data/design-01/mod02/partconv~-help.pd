@@ -1,0 +1,95 @@
+#N canvas -9 -9 1920 976 10;
+#X obj 201 569 dac~;
+#X obj 177 190 osc~;
+#X obj 177 164 mtof;
+#X floatatom 177 141 5 0 0 0 - - -;
+#X obj 640 348 soundfiler;
+#X obj 640 249 loadbang;
+#X obj 201 541 *~;
+#X obj 331 466 vsl 15 128 0 100 0 1 empty empty empty 0 -8 0 8 -260818
+-1 -1 11200 1;
+#X text 431 7 Ben Saylor - bensaylor@fastmail.fm;
+#X text 105 7 partitioned convolution external;
+#X obj 230 541 *~;
+#X msg 232 190 0;
+#X msg 270 190 0.1;
+#X obj 177 212 *~ 0;
+#X obj 271 515 dbtorms;
+#X text 226 155 test with a sine;
+#X text 10 8 partconv~;
+#X text 26 44 version 0.2 \, August 12 \, 2005;
+#X text 258 43 [partconv~ <IR array> <partition size>];
+#X text 258 71 The partition size must be a power of 2 greater than
+or equal to the block size. Larger partition sizes are more efficient
+\, to a point \, but increase latency (the delay between input and
+output is equal to the partition size minus the block size).;
+#N canvas 380 283 494 344 META 0;
+#X text 12 125 HELP_PATCH_AUTHORS "pd meta" information added by Jonathan
+Wilkes for Pd version 0.42.;
+#X text 12 5 KEYWORDS control abstraction MIDI conversion;
+#X text 12 45 DESCRIPTION partitioned convolution external;
+#X text 12 65 INLET_0 signal set;
+#X text 12 85 OUTLET_0 signal;
+#X text 12 25 LICENSE GPL v2;
+#X text 12 105 AUTHOR Benjamin R. Saylor <bensaylor@fastmail.fm>;
+#X restore 815 560 pd META;
+#X msg 671 487 \; pd dsp 1;
+#X obj 311 264 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 640 273 read -resize ListeningRoom6m/IR_Az_90_KMRL.wav irL90
+;
+#X msg 640 297 read -resize ListeningRoom6m/IR_Az_90_KMRR.wav irR90
+;
+#X msg 990 270 read -resize ListeningRoom6m/IR_Az_-90_KMRL.wav irL_90
+;
+#X msg 990 294 read -resize ListeningRoom6m/IR_Az_-90_KMRR.wav irR_90
+;
+#X msg 272 350 set irL_90;
+#X msg 342 351 set irR_90;
+#X obj 788 381 table irL_90;
+#X obj 789 403 table irR_90;
+#X obj 658 378 table irL90;
+#X obj 658 400 table irR90;
+#X obj 126 426 partconv~ irL90 64;
+#X obj 260 425 partconv~ irR90 64;
+#X obj 63 142 readsf~;
+#X msg 85 113 stop;
+#X msg 63 91 open speech_44100.wav \, start;
+#X obj 471 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 502 348 set irR90;
+#X msg 432 346 set irL90;
+#X connect 1 0 13 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 23 0;
+#X connect 5 0 24 0;
+#X connect 5 0 25 0;
+#X connect 6 0 0 0;
+#X connect 7 0 14 0;
+#X connect 10 0 0 1;
+#X connect 11 0 13 1;
+#X connect 12 0 13 1;
+#X connect 13 0 33 0;
+#X connect 13 0 34 0;
+#X connect 14 0 6 1;
+#X connect 14 0 10 1;
+#X connect 22 0 27 0;
+#X connect 22 0 28 0;
+#X connect 23 0 4 0;
+#X connect 24 0 4 0;
+#X connect 25 0 4 0;
+#X connect 26 0 4 0;
+#X connect 27 0 33 0;
+#X connect 28 0 34 0;
+#X connect 33 0 6 0;
+#X connect 34 0 10 0;
+#X connect 35 0 33 0;
+#X connect 35 0 34 0;
+#X connect 35 1 37 0;
+#X connect 36 0 35 0;
+#X connect 37 0 35 0;
+#X connect 38 0 40 0;
+#X connect 38 0 39 0;
+#X connect 39 0 34 0;
+#X connect 40 0 33 0;

@@ -1,0 +1,760 @@
+#N canvas -8 -8 1920 997 12;
+#N canvas 0 23 487 359 cpu-meter 0;
+#X floatatom 103 122 5 0 0 1 % - -;
+#X obj 272 158 cputime;
+#X obj 272 102 metro 1000;
+#X msg 272 66 1;
+#X obj 272 130 t b b;
+#X obj 272 218 * 0.1;
+#X obj 272 187 int;
+#X obj 272 38 r \$0-lb1;
+#X connect 1 0 6 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X coords 0 -1 1 1 85 40 1 100 100;
+#X restore 35 74 pd cpu-meter;
+#X msg 36 185 \; pd dsp 0;
+#X msg 36 145 \; pd dsp 1;
+#X obj 36 121 loadbang;
+#N canvas -9 -9 2400 1041 BRIRs 1;
+#X obj 123 598 soundfiler;
+#X obj 123 568 receive receiver;
+#X obj 123 93 table IR-90L;
+#X obj 123 113 table IR-90R;
+#X obj 123 134 table IR-80L;
+#X obj 123 156 table IR-80R;
+#X obj 123 178 table IR-70L;
+#X obj 123 199 table IR-70R;
+#X obj 123 221 table IR-60L;
+#X obj 123 243 table IR-60R;
+#X obj 123 266 table IR-50L;
+#X obj 123 287 table IR-50R;
+#X obj 123 308 table IR-40L;
+#X obj 123 329 table IR-40R;
+#X obj 123 352 table IR-30L;
+#X obj 123 373 table IR-30R;
+#X obj 123 395 table IR-20L;
+#X obj 123 417 table IR-20R;
+#X obj 123 439 table IR-10L;
+#X obj 123 460 table IR-10R;
+#X obj 123 482 table IR0L;
+#X obj 123 504 table IR0R;
+#X obj 252 92 table IR90L;
+#X obj 253 113 table IR90R;
+#X obj 254 135 table IR80L;
+#X obj 253 155 table IR80R;
+#X obj 253 178 table IR70L;
+#X obj 253 199 table IR70R;
+#X obj 253 221 table IR60L;
+#X obj 253 243 table IR60R;
+#X obj 253 265 table IR50L;
+#X obj 253 286 table IR50R;
+#X obj 253 307 table IR40L;
+#X obj 253 328 table IR40R;
+#X obj 253 351 table IR30L;
+#X obj 253 372 table IR30R;
+#X obj 253 394 table IR20L;
+#X obj 253 416 table IR20R;
+#X obj 253 437 table IR10L;
+#X obj 253 459 table IR10R;
+#X obj 368 64 loadbang;
+#X text 86 21 load BRIR when the main patch is opened;
+#X msg 368 91 b \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-90_KMRL.wav
+IR-90L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-90_KMRR.wav
+IR-90R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-80_KMRL.wav
+IR-80L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-80_KMRR.wav
+IR-80R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-70_KMRL.wav
+IR-70L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-70_KMRR.wav
+IR-70R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-60_KMRL.wav
+IR-60L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-60_KMRR.wav
+IR-60R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-50_KMRL.wav
+IR-50L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-50_KMRR.wav
+IR-50R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-40_KMRL.wav
+IR-40L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-40_KMRR.wav
+IR-40R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-30_KMRL.wav
+IR-30L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-30_KMRR.wav
+IR-30R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-20_KMRL.wav
+IR-20L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-20_KMRR.wav
+IR-20R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-10_KMRL.wav
+IR-10L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_-10_KMRR.wav
+IR-10R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_0_KMRL.wav
+IR0L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_0_KMRR.wav
+IR0R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_10_KMRL.wav
+IR10L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_10_KMRR.wav
+IR10R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_20_KMRL.wav
+IR20L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_20_KMRR.wav
+IR20R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_30_KMRL.wav
+IR30L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_30_KMRR.wav
+IR30R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_40_KMRL.wav
+IR40L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_40_KMRR.wav
+IR40R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_50_KMRL.wav
+IR50L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_50_KMRR.wav
+IR50R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_60_KMRL.wav
+IR60L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_60_KMRR.wav
+IR60R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_70_KMRL.wav
+IR70L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_70_KMRR.wav
+IR70R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_80_KMRL.wav
+IR80L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_80_KMRR.wav
+IR80R \; receiver read -resize ../data/ListeningRoom6m/IR_Az_90_KMRL.wav
+IR90L \; receiver read -resize ../data/ListeningRoom6m/IR_Az_90_KMRR.wav
+IR90R;
+#X connect 1 0 0 0;
+#X connect 40 0 42 0;
+#X restore 36 240 pd BRIRs;
+#X obj 472 107 readsf~;
+#X msg 493 83 stop;
+#X msg 472 60 open voice.wav \, start;
+#X obj 472 133 s~ sound;
+#X text 283 58 load and play audio file;
+#X text 234 192 compute partitioned convolution;
+#N canvas 730 453 556 300 README 0;
+#X text 45 24 This implementation requires the following libraries:
+;
+#X text 45 42 bsaylor -> partconv~;
+#X text 45 55 zexy -> mux~;
+#X text 45 78 to install them \, download the externals from the Deken:
+1) go to Help -> Find Externals -> search for the libraries 2) in File
+-> Preferencies -> Startup -> New and add the librieries writing typing
+their name (in this case you will have two now entries \, "zexy" and
+"bsaylor") 3) in File -> Preferencies -> Path add the path to the forlder
+of each library ex: C:UsersGloriaDocumentsPdexternalszexy;
+#X text 45 201 comment;
+#X restore 35 49 pd README;
+#N canvas 761 280 739 526 convolution_L 0;
+#X obj 67 237 env~;
+#X floatatom 67 258 5 0 0 1 dB - -;
+#X obj 54 110 r~ sound;
+#X obj 61 174 r convolve;
+#X obj 60 133 r convolve1-L;
+#X obj 60 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 261 261 485 220 partconv_info 0;
+#X text 42 50 [partconv~ <IR array> <partition size>];
+#X text 42 78 The partition size must be a power of 2 greater than
+or equal to the block size. Larger partition sizes are more efficient
+\, to a point \, but increase latency (the delay between input and
+output is equal to the partition size minus the block size).;
+#X restore 52 33 pd partconv_info;
+#X obj 53 467 outlet~;
+#X obj 211 237 env~;
+#X floatatom 211 258 5 0 0 1 dB - -;
+#X obj 198 110 r~ sound;
+#X obj 205 174 r convolve;
+#X obj 204 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 355 237 env~;
+#X floatatom 355 258 5 0 0 1 dB - -;
+#X obj 342 110 r~ sound;
+#X obj 349 174 r convolve;
+#X obj 348 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 204 133 r convolve2-L;
+#X obj 348 133 r convolve3-L;
+#X obj 485 237 env~;
+#X floatatom 485 258 5 0 0 1 dB - -;
+#X obj 472 110 r~ sound;
+#X obj 479 174 r convolve;
+#X obj 478 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 478 133 r convolve4-L;
+#X obj 621 237 env~;
+#X floatatom 621 258 5 0 0 1 dB - -;
+#X obj 608 110 r~ sound;
+#X obj 615 174 r convolve;
+#X obj 614 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 614 133 r convolve5-L;
+#N canvas -982 425 756 402 mux_indx 0;
+#X obj 45 78 loadbang;
+#X obj 112 110 +;
+#X obj 112 134 int;
+#X msg 178 77 1;
+#X obj 112 40 r mod3-L;
+#X obj 178 40 r mod3-R;
+#X floatatom 119 182 5 0 0 0 - - -;
+#X msg 112 78 -1;
+#X obj 112 158 mod 5;
+#X msg 45 102 2;
+#X obj 112 340 outlet;
+#X obj 112 203 pipe 100;
+#X obj 123 234 print 2-select_in_mux;
+#X msg 463 63 bang;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array selec 8 float 3;
+#A 0 0 1 2 3 4 3 2 1;
+#X coords 0 4 8 0 200 140 1 0 0;
+#X restore 462 161 graph;
+#X floatatom 328 234 5 0 0 0 - - -;
+#X obj 319 162 mod 2;
+#X floatatom 325 186 5 0 0 0 - - -;
+#X obj 319 209 tabread selec;
+#X msg 463 88 \; selec 0 0 1 2 3 4 3 2 1;
+#X obj 112 302 mux 0 1;
+#X obj 158 274 r mode;
+#X connect 0 0 9 0;
+#X connect 1 0 2 0;
+#X connect 2 0 1 1;
+#X connect 2 0 8 0;
+#X connect 2 0 16 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 2 0;
+#X connect 11 0 20 0;
+#X connect 13 0 19 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 18 0 15 0;
+#X connect 18 0 20 1;
+#X connect 20 0 10 0;
+#X connect 21 0 20 2;
+#X restore 53 305 pd mux_indx;
+#X floatatom 60 328 5 0 0 0 - - -;
+#X obj 53 209 convolve~ 64 IR-20L;
+#X obj 197 209 convolve~ 64 IR-10L;
+#X obj 341 209 convolve~ 64 IR0L;
+#X obj 471 209 convolve~ 64 IR10L;
+#X obj 607 209 convolve~ 64 IR20L;
+#N canvas -2409 -9 2400 1246 mix-dry-and-wet 0;
+#X obj 46 24 inlet~;
+#X obj 46 364 outlet~;
+#X obj 46 289 *~;
+#X obj 346 247 dbtorms;
+#X obj 346 289 line~;
+#X obj 346 268 pack f 40;
+#X obj 46 159 *~;
+#X obj 96 117 dbtorms;
+#X obj 96 159 line~;
+#X obj 96 138 pack f 40;
+#X obj 46 230 +~;
+#X obj 236 24 inlet~;
+#X obj 236 159 *~;
+#X obj 286 117 dbtorms;
+#X obj 286 159 line~;
+#X obj 286 138 pack f 40;
+#X obj 96 96 r \$0-dry-volume;
+#X obj 286 96 r \$0-wet-volume;
+#X obj 346 226 r \$0-master-volume;
+#X connect 0 0 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 1;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 9 0;
+#X connect 8 0 6 1;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 1;
+#X connect 13 0 15 0;
+#X connect 14 0 12 1;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 17 0 13 0;
+#X connect 18 0 3 0;
+#X restore 53 442 pd mix-dry-and-wet;
+#X obj 53 417 r~ sound;
+#X obj 53 352 + 1;
+#X obj 53 387 mux~ . . . . . .;
+#X connect 0 0 1 0;
+#X connect 2 0 34 0;
+#X connect 3 0 34 0;
+#X connect 4 0 5 0;
+#X connect 4 0 34 0;
+#X connect 8 0 9 0;
+#X connect 10 0 35 0;
+#X connect 11 0 35 0;
+#X connect 13 0 14 0;
+#X connect 15 0 36 0;
+#X connect 16 0 36 0;
+#X connect 18 0 12 0;
+#X connect 18 0 35 0;
+#X connect 19 0 17 0;
+#X connect 19 0 36 0;
+#X connect 20 0 21 0;
+#X connect 22 0 37 0;
+#X connect 23 0 37 0;
+#X connect 25 0 24 0;
+#X connect 25 0 37 0;
+#X connect 26 0 27 0;
+#X connect 28 0 38 0;
+#X connect 29 0 38 0;
+#X connect 31 0 30 0;
+#X connect 31 0 38 0;
+#X connect 32 0 33 0;
+#X connect 32 0 41 0;
+#X connect 34 0 0 0;
+#X connect 34 0 42 1;
+#X connect 35 0 8 0;
+#X connect 35 0 42 2;
+#X connect 36 0 13 0;
+#X connect 36 0 42 3;
+#X connect 37 0 20 0;
+#X connect 37 0 42 4;
+#X connect 38 0 26 0;
+#X connect 38 0 42 5;
+#X connect 39 0 7 0;
+#X connect 40 0 39 0;
+#X connect 41 0 42 0;
+#X connect 42 0 39 1;
+#X restore 472 191 pd convolution_L;
+#N canvas 1057 319 776 484 convolution_R 0;
+#X obj 67 237 env~;
+#X floatatom 67 258 5 0 0 1 dB - -;
+#X obj 54 110 r~ sound;
+#X obj 61 174 r convolve;
+#X obj 60 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 261 261 485 220 partconv_info 0;
+#X text 42 50 [partconv~ <IR array> <partition size>];
+#X text 42 78 The partition size must be a power of 2 greater than
+or equal to the block size. Larger partition sizes are more efficient
+\, to a point \, but increase latency (the delay between input and
+output is equal to the partition size minus the block size).;
+#X restore 52 33 pd partconv_info;
+#X obj 211 237 env~;
+#X floatatom 211 258 5 0 0 1 dB - -;
+#X obj 198 110 r~ sound;
+#X obj 205 174 r convolve;
+#X obj 204 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 355 237 env~;
+#X floatatom 355 258 5 0 0 1 dB - -;
+#X obj 342 110 r~ sound;
+#X obj 349 174 r convolve;
+#X obj 348 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 485 237 env~;
+#X floatatom 485 258 5 0 0 1 dB - -;
+#X obj 472 110 r~ sound;
+#X obj 479 174 r convolve;
+#X obj 478 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 621 237 env~;
+#X floatatom 621 258 5 0 0 1 dB - -;
+#X obj 608 110 r~ sound;
+#X obj 615 174 r convolve;
+#X obj 614 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 60 133 r convolve1-R;
+#X obj 204 133 r convolve2-R;
+#X obj 348 133 r convolve3-R;
+#X obj 478 133 r convolve4-R;
+#X obj 614 133 r convolve5-R;
+#N canvas -2409 -9 2400 1246 mux_indx 0;
+#X obj 45 78 loadbang;
+#X obj 112 110 +;
+#X obj 112 134 int;
+#X msg 178 77 1;
+#X obj 112 40 r mod3-L;
+#X obj 178 40 r mod3-R;
+#X floatatom 119 182 5 0 0 0 - - -;
+#X msg 112 78 -1;
+#X obj 112 158 mod 5;
+#X msg 45 102 2;
+#X obj 112 351 outlet;
+#X obj 112 203 pipe 100;
+#X obj 123 234 print 2-select_in_mux;
+#X msg 477 162 bang;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array selec 8 float 3;
+#A 0 0 1 2 3 4 3 2 1;
+#X coords 0 4 8 0 200 140 1 0 0;
+#X restore 476 242 graph;
+#X floatatom 328 234 5 0 0 0 - - -;
+#X obj 319 162 mod 2;
+#X floatatom 325 186 5 0 0 0 - - -;
+#X obj 319 209 tabread selec;
+#X msg 477 187 \; selec 0 0 1 2 3 4 3 2 1;
+#X obj 112 313 mux 0 1;
+#X obj 158 285 r mode;
+#X connect 0 0 9 0;
+#X connect 1 0 2 0;
+#X connect 2 0 1 1;
+#X connect 2 0 8 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 2 0;
+#X connect 11 0 20 0;
+#X connect 13 0 19 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 18 0 15 0;
+#X connect 18 0 20 1;
+#X connect 20 0 10 0;
+#X connect 21 0 20 2;
+#X restore 53 311 pd mux_indx;
+#X floatatom 59 336 5 0 0 0 - - -;
+#X obj 53 209 convolve~ 64 IR-20R;
+#X obj 197 209 convolve~ 64 IR-10R;
+#X obj 341 209 convolve~ 64 IR0R;
+#X obj 471 209 convolve~ 64 IR10R;
+#X obj 607 209 convolve~ 64 IR20R;
+#X obj 53 467 outlet~;
+#N canvas -2409 -9 2400 1246 mix-dry-and-wet 0;
+#X obj 46 24 inlet~;
+#X obj 46 364 outlet~;
+#X obj 46 289 *~;
+#X obj 346 247 dbtorms;
+#X obj 346 289 line~;
+#X obj 346 268 pack f 40;
+#X obj 46 159 *~;
+#X obj 96 117 dbtorms;
+#X obj 96 159 line~;
+#X obj 96 138 pack f 40;
+#X obj 46 230 +~;
+#X obj 236 24 inlet~;
+#X obj 236 159 *~;
+#X obj 286 117 dbtorms;
+#X obj 286 159 line~;
+#X obj 286 138 pack f 40;
+#X obj 96 96 r \$0-dry-volume;
+#X obj 286 96 r \$0-wet-volume;
+#X obj 346 226 r \$0-master-volume;
+#X connect 0 0 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 1;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 9 0;
+#X connect 8 0 6 1;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 1;
+#X connect 13 0 15 0;
+#X connect 14 0 12 1;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 17 0 13 0;
+#X connect 18 0 3 0;
+#X restore 53 442 pd mix-dry-and-wet;
+#X obj 53 417 r~ sound;
+#X obj 53 359 + 1;
+#X obj 53 387 mux~ . . . . . .;
+#X connect 0 0 1 0;
+#X connect 2 0 33 0;
+#X connect 3 0 33 0;
+#X connect 6 0 7 0;
+#X connect 8 0 34 0;
+#X connect 9 0 34 0;
+#X connect 11 0 12 0;
+#X connect 13 0 35 0;
+#X connect 14 0 35 0;
+#X connect 16 0 17 0;
+#X connect 18 0 36 0;
+#X connect 19 0 36 0;
+#X connect 21 0 22 0;
+#X connect 23 0 37 0;
+#X connect 24 0 37 0;
+#X connect 26 0 4 0;
+#X connect 26 0 33 0;
+#X connect 27 0 10 0;
+#X connect 27 0 34 0;
+#X connect 28 0 15 0;
+#X connect 28 0 35 0;
+#X connect 29 0 20 0;
+#X connect 29 0 36 0;
+#X connect 30 0 25 0;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 31 0 41 0;
+#X connect 33 0 0 0;
+#X connect 33 0 42 1;
+#X connect 34 0 6 0;
+#X connect 34 0 42 2;
+#X connect 35 0 11 0;
+#X connect 35 0 42 3;
+#X connect 36 0 16 0;
+#X connect 36 0 42 4;
+#X connect 37 0 21 0;
+#X connect 37 0 42 5;
+#X connect 39 0 38 0;
+#X connect 40 0 39 0;
+#X connect 41 0 42 0;
+#X connect 42 0 39 1;
+#X restore 596 191 pd convolution_R;
+#X obj 480 220 dac~;
+#X obj 472 340 writesf~ 2;
+#X msg 489 293 start;
+#X msg 490 317 stop;
+#X msg 472 269 open audiotest.wav;
+#X text 340 266 record the audio;
+#X obj 1043 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1195 365 tabread deg;
+#X floatatom 1203 342 5 0 0 0 - - -;
+#X floatatom 1204 394 5 0 0 0 - - -;
+#X obj 1195 317 mod 36;
+#X obj 1195 419 t b f;
+#X text 1061 112 L;
+#X obj 1195 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1214 113 R;
+#X obj 1129 226 loadbang;
+#X obj 1195 269 +;
+#X msg 1236 225 1;
+#X obj 1043 157 s mod3-L;
+#X obj 1195 157 s mod3-R;
+#X msg 1195 226 -1;
+#X obj 1195 293 int;
+#X obj 883 226 loadbang;
+#X obj 950 268 +;
+#X obj 950 292 int;
+#X msg 883 249 0;
+#X msg 950 226 -1;
+#X msg 988 226 1;
+#X obj 1043 521 r demux;
+#X obj 1043 132 t b b b;
+#X obj 1195 132 t b b b;
+#X obj 1068 569 pack f s s;
+#X obj 1249 521 r demux;
+#X obj 1272 569 pack f s s;
+#X msg 1129 250 7;
+#X obj 1068 601 route 0 1 2 3 4;
+#X msg 944 52 bang;
+#X msg 953 77 stop;
+#X msg 1339 546 symbol IR\$1R;
+#X msg 1135 544 symbol IR\$1L;
+#X obj 1068 629 s convolve1-L;
+#X obj 1088 653 s convolve2-L;
+#X obj 1108 677 s convolve3-L;
+#X obj 1129 702 s convolve4-L;
+#X obj 1150 727 s convolve5-L;
+#X floatatom 957 340 5 0 0 0 - - -;
+#X obj 950 387 s demux;
+#X obj 950 316 mod 5;
+#N canvas 0 50 563 374 head_tracker_sim 0;
+#N canvas -9 -9 1920 976 (subpatch) 0;
+#X array deg 36 float 3;
+#A 0 -90 -80 -70 -60 -50 -40 -30 -20 -10 0 10 20 30 40 50 60 70 80
+90 80 70 60 50 40 30 20 10 0 -10 -20 -30 -40 -50 -60 -70 -80;
+#X coords 0 170 36 -180 200 140 1 0 0;
+#X restore 57 65 graph;
+#X text 63 311 deg + first index + values;
+#X obj 57 222 loadbang;
+#X msg 57 248 \; deg 0 -90 -80 -70 -60 -50 -40 -30 -20 -10 0 10 20
+30 40 50 60 70 80 90 80 70 60 50 40 30 20 10 0 -10 -20 -30 -40 -50
+-60 -70 -80;
+#X text 54 19 10 deg stepsize \, from -90 to 90;
+#X connect 2 0 3 0;
+#X restore 36 263 pd head_tracker_sim;
+#X text 757 52 head-tracker simulation;
+#X text 1097 396 load new BRIR;
+#X text 904 158 mux input selector;
+#X text 822 318 send index of the convolution object that has to be
+updated with the new brir, f 16;
+#X obj 1272 601 route 0 1 2 3 4;
+#X obj 1272 629 s convolve1-R;
+#X obj 1292 653 s convolve2-R;
+#X obj 1312 677 s convolve3-R;
+#X obj 1333 702 s convolve4-R;
+#X obj 1355 727 s convolve5-R;
+#X obj 940 601 print 1-load_brir;
+#X msg 77 376 window 64;
+#X msg 37 316 window 320;
+#X text 35 293 partition size;
+#X msg 57 346 window 256;
+#X obj 37 412 s convolve;
+#X msg 1305 522 symbol analyze;
+#X msg 1101 521 symbol analyze;
+#N canvas 475 33 700 407 conv_int 0;
+#X obj 288 179 f \$0;
+#X obj 311 113 f \$0;
+#X obj 65 92 loadbang;
+#X obj 38 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 65 224 s \$0-lb4;
+#X obj 65 113 t b b b b;
+#X obj 155 164 s \$0-lb1;
+#X obj 125 184 s \$0-lb2;
+#X obj 95 204 s \$0-lb3;
+#X obj 265 61 r \$0-lb2;
+#X obj 265 274 f \$0;
+#X obj 265 82 t b b b;
+#X msg 311 133 \; \$1-25-band-eq const 1 \;;
+#X text 348 112 EQ;
+#X text 328 177 dry/wet master;
+#X msg 288 199 \; \$1-dry-volume-set 0 \; \$1-wet-volume-set 100 \;
+\$1-master-volume-set 100 \;;
+#X connect 0 0 15 0;
+#X connect 1 0 12 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 5 1 8 0;
+#X connect 5 2 7 0;
+#X connect 5 3 6 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 11 1 0 0;
+#X connect 11 2 1 0;
+#X restore 38 469 pd conv_int;
+#N canvas -9 -9 1920 976 25-band-EQ 0;
+#X obj 345 17 bng 15 250 50 0 empty empty unity 17 7 0 12 -262144 -1
+-1;
+#X obj 275 17 bng 15 250 50 0 empty empty mute 17 7 0 12 -262144 -1
+-1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-25-band-eq 25 float 2;
+#X coords 0 1.25 25 0 355 64 1 0 0;
+#X restore 42 54 graph;
+#X text 39 268 Note that scalar values below 0 are clipped to 0 \,
+but there is no upper limit for scalars., f 67;
+#X obj 205 17 bng 15 250 50 0 \$0-send-eq-list empty apply 17 7 0 12
+-262144 -1 -1;
+#N canvas 548 198 650 289 mute-or-unity 0;
+#X obj 259 40 inlet;
+#X obj 49 40 inlet;
+#X obj 49 90 f \$0;
+#X obj 259 180 f \$0;
+#X msg 49 110 \; \$1-25-band-eq const 0 \;;
+#X msg 259 200 \; \$1-25-band-eq const 1 \;;
+#X obj 331 40 r \$0-convolve;
+#X obj 331 61 route analyze;
+#X obj 331 82 t b;
+#X text 330 126 With each new analysis \, [convolve~]'s internal EQ
+is reset to unity. Reset the EQ table here as a reminder of that.,
+f 41;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X restore 279 159 pd mute-or-unity;
+#N canvas 756 370 594 270 send-eq-message-from-array 0;
+#X obj 29 159 list prepend eq;
+#X obj 29 180 list trim;
+#X obj 29 201 s \$0-convolve;
+#X obj 29 62 r \$0-send-eq-list;
+#X obj 29 108 array get \$0-25-band-eq;
+#X text 218 95 Here \, we dump the scalar values out of the table and
+send them to [convolve~] as an "eq" message. Since working in linear
+frequency bins isn't very intuitive \, [convolve~] uses the Bark frequency
+scale to define 25 frequency bands from DC to Nyquist., f 46;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X restore 41 159 pd send-eq-message-from-array;
+#X text 39 189 As of version 0.11 \, you can scale the complex frequency-domain
+values of the IR analysis via an "eq" message. This allows you to boost
+or attenuate energy in any of 25 Bark-based frequency bands. The "eq"
+method expects a list of 25 scalar values. Here \, the values are dumped
+into a list using [array get]., f 67;
+#X connect 0 0 5 1;
+#X connect 1 0 5 0;
+#X coords 0 -1 1 1 380 120 1 30 10;
+#X restore 38 505 pd 25-band-EQ;
+#X floatatom 260 845 5 0 0 0 - #0-master-volume -;
+#X obj 123 845 hsl 128 15 0 100 0 0 \$0-master-volume \$0-master-volume-set
+master-volume 8 8 0 12 -228856 -1 -1 12700 1;
+#X floatatom 260 825 5 0 0 0 - #0-wet-volume -;
+#X obj 123 825 hsl 128 15 0 100 0 0 \$0-wet-volume \$0-wet-volume-set
+wet-volume 8 8 0 12 -228856 -1 -1 12700 1;
+#X floatatom 256 667 5 0 0 0 - #0-dry-volume -;
+#X obj 119 667 hsl 128 15 0 100 0 0 \$0-dry-volume \$0-dry-volume-set
+dry-volume 8 8 0 12 -228856 -1 -1 0 1;
+#X floatatom 116 694 5 0 0 0 - - -;
+#X obj 98 789 -;
+#X msg 69 758 100;
+#X obj 69 726 b;
+#X obj 945 100 metro 500;
+#X obj 950 363 pipe 100;
+#X obj 597 666 s mode;
+#X floatatom 597 623 5 0 1 2 mode - -;
+#X text 651 601 mode 0: swipe all conv objects mode 1: swipe 2 conv
+objects, f 31;
+#X text 34 16 README: this is a debugging patch;
+#X connect 3 0 2 0;
+#X connect 5 0 8 0;
+#X connect 5 1 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 12 0 15 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 1;
+#X connect 13 0 15 1;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 15 0;
+#X connect 20 0 43 0;
+#X connect 21 0 23 0;
+#X connect 21 0 25 0;
+#X connect 24 0 21 0;
+#X connect 24 0 22 0;
+#X connect 25 0 80 0;
+#X connect 25 0 79 0;
+#X connect 25 1 53 0;
+#X connect 25 1 52 0;
+#X connect 27 0 44 0;
+#X connect 29 0 48 0;
+#X connect 30 0 35 0;
+#X connect 31 0 30 0;
+#X connect 34 0 30 0;
+#X connect 35 0 24 0;
+#X connect 35 0 30 1;
+#X connect 36 0 39 0;
+#X connect 37 0 38 0;
+#X connect 38 0 37 1;
+#X connect 38 0 61 0;
+#X connect 39 0 38 0;
+#X connect 40 0 37 0;
+#X connect 41 0 37 0;
+#X connect 42 0 45 0;
+#X connect 43 0 32 0;
+#X connect 43 1 34 0;
+#X connect 43 2 40 0;
+#X connect 44 0 33 0;
+#X connect 44 1 31 0;
+#X connect 44 2 41 0;
+#X connect 45 0 49 0;
+#X connect 46 0 47 0;
+#X connect 47 0 67 0;
+#X connect 48 0 35 0;
+#X connect 49 0 54 0;
+#X connect 49 1 55 0;
+#X connect 49 2 56 0;
+#X connect 49 3 57 0;
+#X connect 49 4 58 0;
+#X connect 50 0 93 0;
+#X connect 51 0 93 0;
+#X connect 52 0 47 2;
+#X connect 53 0 45 2;
+#X connect 61 0 59 0;
+#X connect 61 0 94 0;
+#X connect 67 0 68 0;
+#X connect 67 1 69 0;
+#X connect 67 2 70 0;
+#X connect 67 3 71 0;
+#X connect 67 4 72 0;
+#X connect 74 0 78 0;
+#X connect 75 0 78 0;
+#X connect 77 0 78 0;
+#X connect 79 0 47 1;
+#X connect 80 0 45 1;
+#X connect 88 0 89 0;
+#X connect 89 0 90 1;
+#X connect 89 0 92 0;
+#X connect 90 0 86 0;
+#X connect 91 0 90 0;
+#X connect 92 0 91 0;
+#X connect 93 0 43 0;
+#X connect 94 0 60 0;
+#X connect 96 0 95 0;
